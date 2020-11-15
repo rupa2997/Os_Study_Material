@@ -1,0 +1,150 @@
+Q1. Explore the following commands with various options, refer man pages for 
+    further help a) date b) cal c) bc d) echo e) who f) whoami g) logname g) uname h)
+    seq i) clear
+seq 2 2 20
+seq 3 3 30
+mkdir a b c
+cd a cd b cd c
+
+cat > a.txt cat > b.txt cat > c.txt
+Q2.	A) Create three directory a b and c and create a.txt,b.txt and c.txt
+Mkdir a b c
+cat > a.txt   cat > b.txt   cat > c.txt
+in each directory respectively and then copy c directory into the a.
+                           ----- cp -r c a
+	B)Move Directory b to c.
+               Mv b c
+	C)Create alias of ls -lh command to your name.
+	D)Change Directory name a to cdac. ------mv a cdac
+
+Q3. A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
+    file5.txt 
+  -----touch file1.txt file2.txt file3.txt file4.txt file5.txtwith some text inside it. 
+Search for 's' character inside all the files using grep command.
+ -- grep 'S' file1.txt file1.txt file2.txt file3.txt file4.txt
+    Also Use cat to view all file content together.
+ - cat file1.txt file1.txt file2.txt file3.txt file4.txt
+	B)Create file.txt using cat and edit that using nano editor.
+----cat > file12.txt -- nano file12.txt
+	c)Create 5 empty files using touch command
+           touch file1.txt file2.txt file3.txt file4.txt file5.txt
+	D)Remove previously created directory a , b   and c.
+Rmdir –r a b c 
+            rm –r a b c  
+             --- rm –rf a b c
+Q4. Create a file with some content using vi editor
+	a) Display the file using cat command
+               -- vi file13.txt   
+	b) Display line numbers along with content
+                   -- cat -n file13.txt
+	c) Display the file in reverse order using tac
+               -- tac file13.txt
+	d) Combine multiple files using cat command
+                -- cat file1.txt file2.txt >file3.txt
+
+Q5. Create Random some files and sub directories.
+	a) display files row wise, column wise, 1 per row
+	b) sort the files in ascending, descending order
+                -- sort file1.txt
+                -- sort –r file1.txt
+	c) Create some hidden files and sub directories and display them using “ls -a”
+	d) Change time stamp of some files and directories using touch command and display the files using ls -t ls –rt
+          --touch -d "today 1 day" file.txt
+        --ls -lh
+	e) Recursive display contents of your home directory.
+                -- ls –R
+               --  du –a
+              -- find dir/ -print  (give path of all the files)
+	f) display all attributes of files and directories using ls -l
+	g) display attributes of a directory using ls –ld
+                   --ls –ld ( used for to know the permissions)
+                 -- ls –m –(allthe files separated by commas)
+--ls –X (sort Entry by extensions)
+ --ls –A (used to show all hidden files)-exclude . .. fliles
+--ls –a A (used to show all hidden files)-include . .. files
+
+==================================================================================
+Q1. Create directory of your name and then create 4 files inside it named
+             -- mkdir Rupali -- cd Rupali
+	a.txt, b.txt, c.txt and d.sh. And change the directory permission to
+	only user and also files permission to only user such that
+		a)user can read and write the file a.txt and b.txt
+                                    chmod +rw a.txt b.txt
+		b)user can write the file c.txt
+                                chmod +w c.txt
+		c)user can exectuable the file d.sh. Make
+			Contents of file d.sh:
+chmod +x d.sh
+cat d.sh
+			#/bin/sh
+			ls -lh
+Q2. Change the permission of the previous directory to executable only.
+	Analyze the output.
+chmod +x Rupali
+Q3. Change the permission of the previous directory to read only.
+	Analyze the output.
+chmod -x Rupali
+Q4. Use echo to list the all files of your home directory.
+Q5. Use echo to list the all files of /etc/ directory
+Q6. Use echo to list the all files of /etc/ directory with extension name .conf
+find /etc/ -name "*.conf"
+Q7. Use echo to append your name to a.txt
+ --echo "Hello----rupali" >>a.txt
+
+==================================================================================
+
+Note:Many operation might not work.Analyze them
+1.	Create Three level nested directory a,b and c
+mkdir a
+cd a
+cat > a.txt
+mkdir b
+cd b
+cat > b.txt
+mkdir c
+cd c
+cat > c.txt
+
+a)Create at least one hidden file in each directory
+touch .rupali
+b)Create at least one normal text file in each directory
+c)Copy c into a
+cp -r c a
+d)Copy file inside a into b	
+cp a.txt b
+cp -r cdac/*  a9
+
+2.	Change the third level directory c permission to read only
+chmod +r c
+3.	Try copying third level c directory to outside of a
+cp c a
+4.	Create the directory  “data“ inside b
+  mkdir  data
+5.	Change the permission of b to read and write only
+   chmod +rw b
+6.	Create directory “data2”  inside b
+mkdir data2.
+7.	Create data.txt file inside b
+    cat > data.txt
+8.	Rename the second level directory c to copied_dir
+   mv c copied_dir
+9.	Change permission of copied_dir to only executable
+chmod +x copied_dir
+10.	Try ls on copied_dir
+11.	Try moving copied_dir to outside of a
+  cp copied_dir a
+12.	Try moving data directory outside of a
+ mv /home/rupali/Rupali/a.txt     /home/rupali
+13.	Now change the owner of the directory a to root
+chown -R root a
+14.	Change permission of a to read write and executable to only user
+
+19.	Change group of movies to sudo
+Chgrp sudo movies
+20.	Change group of movies to avahi
+21.	Try changing permission after changing ownership to root
+22.	Try Changing permission after changing group to sudo without sudo
+
+
+	
+	

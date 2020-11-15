@@ -1,0 +1,312 @@
+Assignment 1:
+==========
+
+Q1. Explore the following commands with various options, refer man pages for 
+    further help 
+	a) date 
+	b) cal 
+	c) bc 
+	d) echo 
+	e) who 
+	f) whoami 
+	g) logname 
+	g) uname 
+	h) seq 
+	i) clear
+
+Ans-> 
+-------
+	a) date command
+	    ------------------
+
+shraddha@MADHOUSE:~$ date
+Tue Sep  8 14:15:57 IST 2020
+shraddha@MADHOUSE:~$ date +%a
+Tue
+shraddha@MADHOUSE:~$ date +%A
+Tuesday
+shraddha@MADHOUSE:~$ date +%b
+Sep
+shraddha@MADHOUSE:~$ date +%B
+September
+shraddha@MADHOUSE:~$ date +%Y
+2020
+shraddha@MADHOUSE:~$ date +%T
+14:16:30
+
+
+	b) cal 
+	   ------
+shraddha@MADHOUSE:~$ cal
+   September 2020
+Su Mo Tu We Th Fr Sa
+       1  2  3  4  5
+ 6  7  8  9 10 11 12
+13 14 15 16 17 18 19
+20 21 22 23 24 25 26
+27 28 29 30
+
+
+shraddha@MADHOUSE:~$ cal 2020 -m1
+    January 2020
+Su Mo Tu We Th Fr Sa
+          1  2  3  4
+ 5  6  7  8  9 10 11
+12 13 14 15 16 17 18
+19 20 21 22 23 24 25
+26 27 28 29 30 31
+
+	c) bc 
+	   -----
+
+
+	d) echo 
+	   --------
+shraddha@MADHOUSE:~$ echo "shraddha"
+shraddha
+shraddha@MADHOUSE:~$ a=420
+shraddha@MADHOUSE:~$ echo $a
+420
+
+	e) who 
+	  ---------
+
+	g) logname 
+	   ------------
+
+===========================================================================
+
+Q2.	A) Create three directory a b and c and create a.txt,b.txt and c.txt
+----		in each directory respectively and then copy c directory into the a.
+	B)Move Directory b to c.
+	C)Create alias of ls -lh command to your name.
+	D)Change Directory name a to cdac.
+
+Ans-> A) Create three directory a b and c and create a.txt,b.txt and c.txt in each directory respectively and then copy c directory into the a.
+-----------
+shraddha@MADHOUSE:~$ mkdir a b c
+shraddha@MADHOUSE:~$ cd a
+shraddha@MADHOUSE:~/a$ touch a.txt b.txt c.txt
+shraddha@MADHOUSE:~/a$ cd ..
+shraddha@MADHOUSE:~$ cd b
+shraddha@MADHOUSE:~/b$ touch a.txt b.txt c.txt
+shraddha@MADHOUSE:~/b$ cd ..
+shraddha@MADHOUSE:~$ cd c
+shraddha@MADHOUSE:~/c$ touch a.txt b.txt c.txt
+shraddha@MADHOUSE:~/c$ cd ..
+
+Ans-> B) Move Directory b to c.
+-----------
+shraddha@MADHOUSE:~$ mv b c
+shraddha@MADHOUSE:~$ ls
+a  c  shell-while.sh  shraddha
+shraddha@MADHOUSE:~$ cd c
+shraddha@MADHOUSE:~/c$ ls
+a.txt  b  b.txt  c.txt
+
+
+Ans-> C) Create alias of ls -lh command to your name.
+-----------
+shraddha@MADHOUSE:~/c$ alias sra=ls
+shraddha@MADHOUSE:~/c$ sra
+a.txt  b  b.txt  c.txt
+
+
+Ans-> D) Change Directory name a to cdac.
+------------
+shraddha@MADHOUSE:~$ ls
+a  c  shell-while.sh  shraddha
+shraddha@MADHOUSE:~$ mv a CDAC
+shraddha@MADHOUSE:~$ ls
+CDAC  c  shell-while.sh  shraddha
+
+===========================================================================
+
+Q3. 	A) Create five files file1.txt , file2.txt ,file3.txt file4.txt and
+    	file5.txt with some text inside it. Search for 's' character
+    	inside all the files using grep command.
+    	Also Use cat to view all file content together.
+	B)Create file.txt using cat and edit that using nano editor.
+	c)Create 5 empty files using touch command
+	D)Remove previously created directory a , b and c.
+
+Ans->A)
+-----------
+shraddha@MADHOUSE:~$ pwd
+/home/shraddha
+shraddha@MADHOUSE:~$
+shraddha@MADHOUSE:~$ mkdir five
+shraddha@MADHOUSE:~$ cd five
+shraddha@MADHOUSE:~/five$ touch file1.txt file2.txt file3.txt file4.txt file4.txt
+shraddha@MADHOUSE:~/five$ cat > file1.txt
+This is 1st file
+
+shraddha@MADHOUSE:~/five$ cat > file2.txt
+This is 2nd file
+
+shraddha@MADHOUSE:~/five$ cat > file3.txt
+This is 3rd file
+
+shraddha@MADHOUSE:~/five$ cat > file4.txt
+this is 4th file
+
+shraddha@MADHOUSE:~/five$ cat > file5.txt
+This is 5th file
+
+
+Ans->B) Create file.txt using cat and edit that using nano editor.
+-----------
+shraddha@MADHOUSE:~$ cat > file.txt
+This is new file
+
+shraddha@MADHOUSE:~$ ls
+CDAC  c  file.txt  five  shell-while.sh  shraddha
+
+
+Ans-> c)Create 5 empty files using touch command
+----------
+shraddha@MADHOUSE:~$ ls
+CDAC  a  b  c  d  e  file.txt  five  shell-while.sh  shraddha
+
+
+Ans-> D)Remove previously created directory a , b and c.
+----------
+shraddha@MADHOUSE:~$ rmdir a   
+shraddha@MADHOUSE:~$ rmdir b 
+shraddha@MADHOUSE:~$ rmdir c   
+
+
+==============================================================================
+
+Q4. 	Create a file with some content using vi editor
+	a) Display the file using cat command
+	b) Display line numbers along with content
+	c) Display the file in reverse order using tac
+	d) Combine multiple files using cat command
+
+Ans-> a) Display the file using cat command
+--------
+cat /etc/passwd
+
+Ans-> b) Display line numbers along with content
+-------
+shraddha@MADHOUSE:~$ cat -b test2
+     1  shraddha shirbhate CDAC mumbai
+
+
+Ans->c) Display the file in reverse order using tac
+---------
+shraddha@MADHOUSE:~$ tac d b a
+Priyadarshini institute of ENgg and Tech
+Ira Inetrnational
+Kendriya Vidyalaya
+
+Ans-> d) Combine multiple files using cat command
+-----------
+shraddha@MADHOUSE:~$ cat > a
+Priya
+
+shraddha@MADHOUSE:~$ cat > b
+darshini
+
+shraddha@MADHOUSE:~$ cat a >> b
+shraddha@MADHOUSE:~$ cat b
+darshini
+Priya
+
+========================================================================
+
+Q5. 	Create Random some files and sub directories.
+	a) display files row wise, column wise, 1 per row
+	b) sort the files in ascending, descending order
+	c) Create some hidden files and sub directories and display them using “ls -a”
+	d) Change time stamp of some files and directories using touch command and display the files using ls -t ls -rt
+	e) Recursive display contents of your home directory.
+	f) display all attributes of files and directories using ls -l
+	g) display attributes of a directory using ls -ld
+
+Ans-> a)display files row wise, column wise, 1 per row
+----------
+
+sort file1.txt
+
+ls -a
+ls -A
+
+ls -r
+ls -t ls-rt
+
+==============================================================================
+Q1
+mkdir Shraddha
+touch a.txt b.txt c.txt d.txt
+
+chmod +rw a.txt b.txt
+
+chmod +w c.txt
+
+cat>d.hs
+#/bin/sh
+
+chmod +x d.sh
+
+=======================================
+Q2
+chmod +x shraddha
+================
+Q3
+chmod -x shraddha
+chmod -r shraddha
+=================
+Q4
+echo $(file.txt)
+
+Q5
+echo>>"HELLO THIS IS MESSAGE" >> file.txt
+===============================
+=========================================
+
+Q1
+mkdir a
+cd a
+mkdir b
+cd b
+mkdir c
+
+touch file.txt
+
+cp c a
+
+cp a b
+========================================
+Q2
+chmod +r c
+cp a c
+
+cd b
+mkdir data
+
+chmod +rw b
+
+cd b
+touch data.txt
+
+mv c copied_dir
+
+chmod +x copied_dir
+
+cd copied_dir
+ls
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,449 @@
+ASSIGNMENT-2
+
+1. Write a script to create 10 directories, say a1,a2,...,a10
+Report error if a directory/file exists with the same name.
+
+> for (( i=1 ; $i<=10  ; i++ ))
+do
+
+if [ "-d" "$i" ]; then
+echo "$i exists!!!"
+else
+mkdir "$i"
+fi
+done
+
+
+mkdir: cannot create directory ‘a1’: File exists
+------------------------------------------------------------------------------
+
+2. Write a menu based script to perform following string operations
+
+a) To find length of a string
+c) Copying string
+d) Concatenation of strings
+e) Compare two strings
+f) Reversing a string
+
+> #!/bin/bash
+  while :
+   do
+        echo '1.Find length'
+        echo '2.Copying string'
+        echo '3.Concate of string'
+        echo '4.compare to sring'
+        echo '5.Reverse string'
+		read str1
+		read option
+	case $option in
+        1) echo ${#str1}
+                ;;
+
+        2) str2=$str1
+        echo $str2
+          ;;
+        3)str2="Yash"
+                echo $str1$str2
+                ;;
+        4) str2="Patil"
+        if [ $str1 == $str2 ]
+        then
+          echo "Equal"
+        else
+            echo "Not equal"
+        fi
+            ;;
+        5) echo $str1 | rev
+                ;;
+	esac
+  done
+
+----------------------------------------------------------------------------------------------
+
+3.Write a shell script to rename all files in the current directory with numeric continuous value(Warning: Do this in a personal folder. Don't use Home directory) 
+
+> 
+   for(( i=1; i<10; i++ ))
+   do
+           mv a$i abbbb$i
+   done
+------------------------------------------------------------------------------------------------
+4. Write a script that print environment variable(Print $HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+
+>  echo "Path = $PATH"  
+   echo "Shell = $SHELL"
+   echo "History = $HISTORY"
+   echo "Logname = $LOGNAME"
+   echo "Term = $TERM"
+  
+---------------------------------------------------------------------------------------------
+
+5. Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+
+ls -la | cut -b 1-10
+ls -la | cut -c 1-10
+
+--------------------------------------------------------------------------------------------
+6. Write a shell script to print all files permissions and name of file
+
+> #!/bin/bash
+
+ls -l | awk '{ print $1,$9 }' 
+
+----------------------------------------------------------------------------------------
+
+7.Write a shell script to print all files name and size greater than 5K
+
+> #!/bin/bash
+for i in *
+do
+        if [ "-f" "$i" ];
+                then
+#       echo -n  "$i"   
+        file=`ls -l "$i" | awk '{print $5}'`
+#       echo "  $file"          
+if [ "$file" > 5000 ];
+                        then
+                        ls -l "$i"
+                fi 
+        fi
+done
+
+
+	
+-----------------------------------------------------------------------------------------
+
+
+
+
+1. Write a script To check given year is leap or not.
+
+>	#!/bin/bash
+	echo 'Enter a year : '
+	read year
+	if (( $year%4 == 0 && $year%100 != 0 || $year%400 == 0))
+	then
+		echo 'Leap Year'
+	else
+		echo 'Not a Leap Year'
+	fi
+
+--------------------------------------------------------------------------------------------
+2. Write a script to print day of the week using
+	a) elif	b) case 
+	
+> #!/bin/bash
+
+	echo 'Enter the no of Day : '
+	read day
+
+	if [ $day == 1 ]
+	then
+		echo 'Sunday'
+	elif [ $day == 2 ]
+	then
+		echo 'Monday'
+	elif [ $day == 3 ]
+	then
+		echo 'Tuesday'
+	elif [ $day == 4 ]
+	then
+		echo 'Wednesday'
+	elif [ $day == 5 ]
+	then
+		echo 'Thrusday'
+	elif [ $day == 6 ]
+	then
+		echo 'Friday'
+	elif [ $day == 7 ]
+	then
+		echo 'Saturday'
+	else
+		echo 'Invalid Entry'
+	fi
+
+-------------------------------------------------------------------------------------------
+3. a) Write a script to find biggest of three no.s
+   b) To find avg of 3 no.s, read no.s from keyboard
+   
+ > #!/bin/bash
+
+	echo 'Enter num1 : '
+	read num1
+	echo 'Enter num2 : '
+	read num2
+	echo 'Enter num3 : '
+	read num3
+
+	if (( num1 > num2 && num1 > num3 ))
+	then
+		echo $num1
+	elif (( num2 > num1 && num2 > num3 ))
+	then
+		echo $num2
+	else
+		echo $num3
+	fi
+
+--------------------------------------------------------------------------------------------
+4. Write a program to check wahether given no.is even or odd
+
+>	#!/bin/bash
+
+	echo 'Enter a number : '
+	read num
+
+	if (( num%2 == 0 ))
+	then 
+		echo $num 'is Even.'
+	else
+		echo $num 'is Odd.'
+	fi
+
+----------------------------------------------------------------------------------------
+5. Write a program to print calendar of current month in next year,previous years.
+	For eg:-sep 2014,sep 2012 if current month is sep 2013	
+	
+> #!/bin/bash
+
+	mon=$(date | awk '{print $3}')
+	year=$(date | awk '{print $4}')
+
+	let "prev=year-1" "next=year+1"
+
+	cal $mon $prev
+	cal $mon $year
+	cal $mon $next
+
+---------------------------------------------------------------------------------------
+6. Write a program to find sum and product of two no.s using 
+	a) let 
+	b)expr
+	c)bc	
+
+##########
+var1=10
+var2=20
+echo "scale=3; $var1/$var2" | bc -l
+echo "scale=2; 5/4" | bc -l
+##########
+
+
+var=$(echo "scale=2; 5/4" | bc -l)
+
+
+	
+> #!/bin/bash
+
+	echo 'Enter num1 : '
+	read num1
+	echo 'Enter num2 : '
+	read num2
+	echo 'Enter num3 : '
+	read num3
+
+	(( avg = (( $num1+$num2+$num3 ))/3 ))
+	echo 'Average : '$avg
+
+> #!/bin/bash
+
+	echo 'Enter num1 : '
+	read num1
+	echo 'Enter num2 : '
+	read num2
+
+	let "prodlet=num1*num2"
+
+	prodExp=$(expr $num1 \* $num2)
+
+	echo 'Let : '
+	echo $prodlet 
+	echo 'Expr : '
+	echo $prodExp
+	echo 'BC : '
+	echo $num1 \* $num2 | bc
+
+------------------------------------------------------------------------------------------
+7. Write a script to generate Fibonacci series.
+
+solution 1
+
+echo "Enter number upto which you want to: "
+read num
+pre=0
+now=1
+fnum=0
+echo -n "$pre, $now, "
+while (( pre + now < num ))
+do
+(( fnum = pre + now ))
+echo -n "$fnum, "
+pre=$now
+now=$fnum
+done
+
+solution 2
+ #!/bin/bash
+
+	echo 'Enter the range till you want to calculate the Fibonaccci Series : '
+	read range
+	i=1
+	prev=0
+	newprev=0
+	while (( $i+$prev < $range ))
+	do
+		echo $(expr $prev + $i)
+		newprev=$prev
+		prev=$i
+		i=$(expr $newprev + $i)
+	done
+
+
+solution 3
+read n a=0 b=1
+echo "The Fibonacci series is : "
+
+for (( i=0; i<n; i++ )) 
+do
+    echo -n "$a "
+    fn=$((a + b)) 
+    a=$b 
+    b=$fn 
+done
+
+
+----------------------------------------------------------------------------------------
+8. Write a shell script to reverse the single strings. 
+
+#!/bin/b
+
+echo 'Enter a string : '
+	read str
+echo $str | rev
+
+
+> #!/bin/bash
+
+	echo 'Enter a string : '
+	read str
+	rev=""
+	len=${#str}
+	for (( i=$len; i>0; i-- ))
+	do
+		temp=$(expr $str | cut -c $i)
+		rev=$rev$temp
+	done
+
+	echo $rev
+
+-------------------------------------------------------------------------------------------
+9.Write a shell script to reverse the list of strings and reverse each string further in the list.
+
+solution 1
+
+> #!/bin/bash 
+
+echo -e "Enter number of strings: \c"
+read num
+num1=$(( $num - 1 ))
+str=()
+while (( $num1 >= 0 ))
+do
+read str[$num1]
+#echo "$num1"
+(( num1-- ))
+done
+echo "${str[@]}" | rev
+
+
+solution 2
+
+>	#!/bin/bash  
+
+	echo 'Enter array of Strings : '
+	read -a arr
+
+	min=0
+	max=`expr ${#arr[@]} - 1`
+	x=$max
+	while (( $min <= $max ))
+	do
+		newArr[$min]=${arr[$max]}
+		newArr[$max]=${arr[$min]}
+		(( min++ ))
+		(( max-- ))
+	done
+
+	max=$x
+
+	for (( i=0; i<=max; i++ ))
+	do
+		rev=""
+		str=${newArr[$i]}
+		let "len=${#str} -1"
+		for (( j=$len; j>=0; j-- ))
+		do
+			rev="$rev${str:$j:1}"
+		done
+		newArr[$i]=$rev
+	done
+
+	echo ${newArr[@]}
+
+---------------------------------------------------------------------------------------
+10. Write a shell script to print the reverse of an input number.
+>	#!/bin/bash  
+echo  -e "Enter a number to reverse: \c"
+read num
+echo -e "The reverse of $num is: \c" 
+echo $num | rev
+
+solution 2
+>	#!/bin/bash
+
+	echo 'Enter a number : '
+	read num
+	n=$num
+	sum=0
+	rem=0
+	while (( $n > 0 ))
+	do
+		rem=`expr $n % 10`
+		sum=`expr $sum \* 10`
+		sum=`expr $sum + $rem`
+		n=`expr $n / 10`
+	done
+	echo 'Reverse : ' $sum
+
+---------------------------------------------------------------------------------------
+PASSWORD QUESTION
+
+echo "enter the password"
+ read password
+  len="${#password}" 
+  if  [ $len -ge 8 ]  
+    then 
+        echo "$password" | grep -q [0-9] 
+    if [ $? -eq 0 ]  
+        then
+             echo "$password" | grep -q [A-Z] 
+        if [ $? -eq 0 ]  
+            then
+                 echo "$password" | grep -q [a-z]
+            if [ $? -eq 0 ]  
+                then 
+                    echo "$password" | grep -q [$,@,\#,%]
+                if [ $? -eq 0 ]  
+                    then echo "Strong password"
+                else echo "weak password include special chars"
+                fi 
+            else echo "weak password include lower case char" 
+            fi
+        else echo "weak password include capital char" 
+        fi 
+    else echo "please include"
+    fi
+fi
+
+
+

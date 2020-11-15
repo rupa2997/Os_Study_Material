@@ -1,0 +1,59 @@
+Social Media is like a major lifeline in the current era. As arteries and veins are essential to pump blood throughout our body in order to maintain our survival similarly social media has drawn its attention in making such a mark in our lives today.
+
+A)   Positive Impact of Social Media:
+
+ 1. Learning : The most significant thing that I see is the learning facilitation that it provides. Even a small child who starts using these channels at an early stage of their lives develops communication skills.
+
+Marketing : Almost all age groups are available on social media so instead of wasting money on ads, campaigns, they become more consumer centric via social media. On the other hand, people also get informed and learned about the products more frequently and easily in this mode.
+
+2. Interaction : As the most common and most widespread use of social media is getting connected to others and interacting with the world using the various social networking websites. So, people sitting far far away can connect within seconds and interact on a more intimate level so effortlessly.
+
+3. Mass Awareness: One of the significant impacts of social media is the tremendously increased awareness of the masses in context of the news and happenings going all around the world because internet spreads news and reviews more rapidly than any other mode and social media makes them do so. So people have become more aware and updated now.
+
+(B) Negative Impact of Social Media:
+
+
+1. Hampers Privacy: It has been witnessed that people become more public and open about their personal lives on social networks which really hampers their privacy. Photos uploaded may be misused. So this is a major cause of concern.
+
+2. Cyber-Bullying : This is really a serious issue when many of the people unintentionally fall prey to terrorist activities, false claims and cyber crime tending to the extent of even provoking kids and teenagers to commit suicides.
+
+3. Deteriorated Productivity: As people spend most of their productive and working times interacting on the social media, it obviously hampers the productivity of individuals. People get distracted a lot due to these social media sites. It has been reported by Nucleus Research that Facebook adds to 1.5% of the total off office productivity world-over.
+
+4. Addiction : One of the most fatal consequences of social media is people getting addicted to it and using it timelessly irrespective of thinking upon the fact that they have only 24 hours in a day. This addiction leads to insomnia, mental stress, time killing and many health adversities in people, specially teenagers who are the future of the nation.
+
+In nut-shell, social media is of significant importance to us but then we must look at both the pros and cons as it proves to be a boon if used judiciously and effectively as well as a bane if being overused or misused.
+
+Eric Qualman has rightfully said, “We don’t have a choice whether we do Social Media or not, the question is how well we do it.”
+
+“Jagran Josh also helps to get information about Top MBA Institutes based upon your choice of Location and Specialization. Click here to get details & the Best Seller “MBA Pedia” eBook, absolutely FREE.
+
+ 
+
+feedback form
+upload recording ggogle drive link in sheet
+2 section in hackerank mcq coding
+2nd quetion coding part quetion---some commands--2 3 quetions on shellscript or cpp--attendan 4--ass-4--prac--22
+
+
+wait(NULL)----parent process should be present until nd unless child process not excuted
+
+execl-system files
+
+ps -eaf-to check zombi procesess
+
+ps -ef
+ps -elf
+escp yy--to copy
+escp pp--to paste
+
+dispather---process ready to running
+process scheduling--preemptive
+throuhput--total work done per unit time
+waiting time--in premption
+response time--process allocate first cpu
+burs t-given
+exe time--total time req to complet exe
+convoy effect--as all the other processes wait for the one big process to get excute
+
+to reduce inter frag--paging used
+exter frag-- compaction

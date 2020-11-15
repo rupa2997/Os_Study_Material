@@ -1,0 +1,394 @@
+
+1)	1. Write a script to create 10 directories, say a1,a2,...,a10
+	Report error if a directory/file exists with the same name.
+
+Ans->
+--------
+#! /bin/bash
+
+echo "Enter a number"
+read num
+for (( i=1; i<=num; i++ ))
+do
+        mkdir b$i
+done
+
+
+#using while loop
+echo -e "Enter a number : \c"
+read num1
+i=1
+while [ $i -le $num ]
+do
+        rmdir b$i
+        (( i++ ))
+done
+
+==========================================================
+
+2) 	2. Write a menu based script to perform following string operations
+	a) To find length of a string
+	c) Copying string
+	d) Concatenation of strings
+	e) Compare two strings
+	f) Reversing a string
+
+Ans->
+--------
+#! /bin/bash
+
+echo "1. Find the Length of String"
+echo "2. Copy the String"
+echo "3. Concatenation of String"
+echo "4. Compare two Strings"
+echo "5. Reversing a String"
+
+echo -e "Enter a String : \c"
+read str1
+
+echo -e "Enter your choice : \c"
+read choice
+
+case $choice in
+        1 )
+                echo "${#str1}" ;;
+        2 )
+                str2=$str1
+                echo "$str2" ;;
+        3 )
+                read -p "Enter the string 2" str2
+                echo "$str1 $str2" ;;
+        4 )
+                read -p "Enter the secon String : " str2
+                if [ $str1 == $str2 ]
+                then
+                        echo "$st1 snd $str2 are EQUAL"
+                else
+	         echo "$str1 and $str2 are NOT EQUAL"
+                fi
+                ;;
+        5 )
+                echo $str1 | rev ;;
+        * )
+                echo "INVALID CHOICE" ;;
+esac
+
+=======================================================================
+
+3)	Write a shell script to rename all files in the current directory with 
+	numeric continuous value
+	(Warning: Do this in a personal folder. Don't use Home directory) 
+Ans->
+-------
+
+	CREATE DIRECTORY
+	=================
+	read -p "Enter any number : " a
+	i=1
+	while [ $i -le 10 ]
+	do
+       		 mkdir a$i
+        		(( i++ ))
+	done
+	--------------------------------------------
+	RENAME DIRECTORY
+	==================
+	read -p "Enter any number : " a
+	i=1
+	while [ $i -le 10 ]
+	do
+       		 mv a$i 1$i
+        		(( i++ ))
+	done
+
+==============================================================================
+
+4) 	4. Write a script that print environment variable(Print $HOME,$PATH,$SHELL,$HISTORY,$LOGNAME,$TERM)
+Ans->
+	#! /bin/bash
+
+	echo "Home = $HOME"
+	echo
+	echo "Path = $PATH"
+	echo
+	echo "Shell = $SHELL"
+	echo
+	echo "History = $HISTORY"
+	echo
+	echo "Logname = $LOGNAME"
+	echo
+	echo "Term = $TERM"
+
+==============================================================================
+
+5)	Write a shell script to print all files permissions in current directory(Not name or other details)(Use cut commands)
+Ans->
+	echo -e "Enter directory name : \c"
+	read dir_name
+	if [ -e $dir_name ]
+	then
+        		ls -al | cut -b 1-10
+	else
+        		echo "Directory doesnt exists"
+	fi
+==============================================================================
+
+6)	Write a shell script to print all files permissions and name of file
+Ans->
+
+
+==============================================================================
+==============================================================================
+
+1) 	Write a script To check given year is leap or not.
+Ans->
+
+#! /bin/bash
+
+echo -e "Enter a Year : \c"
+read year
+
+if (( $year%4 == 0 && $year%100 != 0 || $year%400 == 0 ))
+then
+        echo "$year is a LEAP YEAR"
+else
+        echo "$year is not a LEAP YEAR"
+fi
+~      
+
+==============================================================================
+2)	Write a script to print day of the week using
+	a) elif	b) case 
+
+
+
+a) 	 elif
+-------------------
+SCRIPT
+-----------
+#! /bin/bash
+
+read -p "Enter the number of the DAY : " day
+
+if [ $day == "0" ]
+then
+        echo "Sunday"
+elif [ $day == 1 ]
+then
+        echo "Monday"
+elif [ $day == 2 ]
+then
+        echo "Tuesday"
+elif [ $day == 3 ]
+then
+        echo "Wednesday"
+elif [ $day == 4 ]
+then
+        echo "Thursday"
+elif [ $day == 5 ]
+then
+        echo "Friday"
+elif [ $day == 6 ]
+then
+        echo "Saturday"
+fi
+~  
+
+OUTPUT
+------------
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter the number of the DAY : 0
+Sunday
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter the number of the DAY : 5
+Friday
+
+-----------------------------------------------------------------------------------------------------------------------
+
+b)  	case 
+--------------------
+SCRIPT
+-----------
+#! /bin/bash
+
+read -p "Enter the number of the DAY : " day
+
+
+case $day in
+        0 )
+                echo "Sunday" ;;
+        1 )
+                echo "Monday" ;;
+        2)
+                echo "Tuesday" ;;
+        3 )
+                echo "Wednesday";;
+        4 )
+                echo "Thursaday" ;;
+        5 )
+                echo "Friday" ;;
+        6 )
+                echo "Saturday";;
+esac
+
+OUTPUT
+------------
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter the number of the DAY : 0
+Sunday
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter the number of the DAY : 6
+Saturday
+
+
+==============================================================================
+
+3. 	a) Write a script to find biggest of three no.s
+   	b) To find avg of 3 no.s, read no.s from keyboard
+
+
+a) 	Write a script to find biggest of three no.s
+
+SCRIPT
+----------
+#! /bin/bash
+
+read -p "Enter First number : " a
+read -p "Enter Second number : " b
+read -p "Enter Third number : " c
+
+if (( $a > $b && $a > $c ))
+then
+        echo "$a is GREATER than $b and $c"
+elif (( $b > $a && $b > $c))
+then
+        echo "$b is GREATER than $a and $c"
+else
+        echo "$c is GREATER than $a and $b"
+
+fi
+
+
+OUTPUT
+------------
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter First number : 5
+Enter Second number : 2
+Enter Third number : 1
+5 is GREATER than 2 and 1
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter First number : 6
+Enter Second number : 5
+Enter Third number : 10
+10 is GREATER than 6 and 5
+
+---------------------------------------------------------------------------------------------------------------------------
+
+b) 	To find avg of 3 no.s, read no.s from keyboard
+
+SCRIPT
+----------
+#! /bin/bash
+
+read -p "Enter First number : " a
+read -p "Enter Second number : " b
+read -p "Enter Third number : " c
+
+sum=$( expr $a + $b + $c)
+echo "sum of three numbers is : $sum"
+echo "Average of three nnumbers is : "
+echo "scale=3;$sum / 3" | bc
+
+
+OUTPUT
+-------------
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter First number : 2
+Enter Second number : 3
+Enter Third number : 5
+sum of three numbers is : 10
+3.333
+Average of three numbers is :
+
+shraddha@MADHOUSE:~$ vi assignment2.sh
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter First number : 5
+Enter Second number : 5
+Enter Third number : 5
+sum of three numbers is : 15
+Average of three nnumbers is :
+5.000
+
+====================================================================================
+
+4. 	Write a program to check wahether given no.is even or odd
+
+SCRIPT
+----------
+#! /bin/bash
+
+read -p "Enter a number : " num
+if (( $num % 2 == 0 ))
+then
+        echo "$num is an EVEN number"
+else
+        echo "$num is an ODD number"
+fi
+
+OUTPUT
+-----------
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter a number : 201
+201 is an ODD number
+shraddha@MADHOUSE:~$ ./assignment2.sh
+Enter a number : 20
+20 is an EVEN number
+
+==================================================================================
+
+5. 	Write a program to print calendar of current month in next year,previous years.
+	For eg:-sep 2014,sep 2012 if current month is sep 2013
+Ans->
+
+	#!/bin/bash
+
+	mon=$(date | awk '{print $3}')
+	year=$(date | awk '{print $4}')
+
+	let "prev=year-1" "next=year+1"
+
+	cal $mon $prev
+	cal $mon $year
+	cal $mon $next
+
+
+
+==================================================================================
+
+7. 	Write a script to generate Fibonacci series.
+Ans->
+	#!/bin/bash
+
+	echo 'Enter the range till you want to calculate the Fibonaccci Series : '
+	read range
+	i=1
+	prev=0
+	newprev=0
+	while (( $i+$prev < $range ))
+	do
+		echo $(expr $prev + $i)
+		newprev=$prev
+		prev=$i
+		i=$(expr $newprev + $i)
+	done
+
+
+
+
+
+
+
+
+
+
+

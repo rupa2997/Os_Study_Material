@@ -1,0 +1,257 @@
+
+2) 	The parent & child process concept
+Ans->	A child process is a process created by a parent process in operating system 
+	using a fork() system call. A child process is created as its parent process's copy 
+	and inherits most of its attributes. ... 
+	If a child process has no parent process, it was created directly by the kernel.
+
+
+3)	Understand orphan processes
+Ans->	Orphan processes are those processes that are still running even though 
+	their parent process has terminated or finished. A process can be orphaned 
+	intentionally or unintentionally. 
+	An intentionally orphaned process runs in the background without 
+	any manual support.
+
+4)	Understand zombie processes
+Ans->	A zombie process is a process whose execution is completed 
+	but it still has an entry in the process table. Zombie processes usually 
+	occur for child processes, 
+	as the parent process still needs to read its child's exit status.
+
+4) i]	How to kill the Zombie Process?
+Ans->	The zombie processes can be removed from the system by sending the 
+	SIGCHLD signal to the parent, using the kill command. If the zombie process 
+	is still not eliminated from the process table by the parent process, 
+	then the parent process is terminated if that is acceptable.
+
+5)	what is getpid() and how to use it..??
+Ans->	getpid() returns the process ID of the current process. 
+	(This is often used by routines that generate unique temporary filenames.) 
+	getppid() returns the process ID of the parent of the current process.
+
+==========================================================================================
+
+1)	Parent and child process 
+	Write a C/CPP program to create a child process. 
+	Child should print its pid and its parent’s pid and should exit by printing message as “Child Exiting …”. 
+	Parent should print its pid and should exit by printing message as “Parent Exiting ..”. 
+	(Hint(functions to be used) : getpid, fork, getppid) 
+
+
+ANS->
+--------
+#include <stdio.h>
+#include <unistd.h>
+
+int main(){
+	pid_t pid;
+	pid = fork();
+	if(pid==0){
+		printf("Child process is running... %d \n", getpid());
+		printf(" having parent... %d \n", getppid());
+	}
+	else if (pid > 0){
+		printf("Parent process is running... %d \n", getpid());
+		printf(" having parent... %d \n", getppid());
+	} 
+	else{
+		printf("Error...Something went wrong");
+	}
+}
+
+=========================================================================================
+
+2) 	2.Scheduling functions 
+	Write a program in C/CPP to check the scheduling policy used by the process and its priority. 
+	(Hint(functions to be used) : sched_getscheduler, getpid) 
+
+ANS->
+--------
+Scheduling functions 
+Write a program in C/CPP to check the scheduling policy used by the process and its priority. 
+
+#include <stdio.h>
+#include <unistd.h>
+
+
+int main(){
+	pid_t pid;
+	
+	pid = fork();
+
+	if(pid==0){
+		printf("Child process is running... %d \n", getpid());
+		printf(" having scheduling policy... %d \n",sched_getscheduler());
+	}
+	else if (pid > 0){
+		printf("Parent process is running... %d \n", getpid());
+		printf(" having scheduling policy... %d  \n",sched_getscheduler());
+	} 
+	else{
+		printf("Error...Something went wrong");
+	}
+}
+
+
+=====================================================================================================
+
+4) 	Scheduling algorithm 
+	Write a program in C/CPP to take process name, its arrival time and execution/burst time as input. 
+	Use FCFS(non-preemptive) algorithm to calculate wait time of each process, average 
+	wait time, turnaround time of each process and average turnaround time. 
+	Calculation of time will start from the arrival time of first process.
+	execution/burst time - Time required for execution of process
+	Wait time of process = response time of process - arrival time process
+	Response time of process : time at which process is scheduled to run
+	Average wait time = (sum of wait time of each process) / (number of processes) 
+	Turnaround time of process = (finish/completion time of process) - (arrival time of process)
+	Average turnaround time = (sum of turnaround time of each process) / (number of processes) 
+
+ANS-> 
+--------
+
+#include <stdio.h>
+//#inlcude<conio.h>
+
+struct process
+{
+    int pid;
+    int btime;
+    int wtime;
+    int ttime;
+    int ArrivalTime;
+    int CompTime;
+} p[10];
+
+main()
+{
+    int i,j,k,n,ttur,twat;
+    float awat,atur;
+
+    //Enter Details//
+    printf("Enter no. of process : ");
+    scanf("%d", &n);
+
+    //Arrival Time
+    for(i=0; i<n; i++)
+    {
+            printf("Arrival time for process P%d (in ms) : ",(i+1));
+            scanf("%d", &p[i].ArrivalTime);
+            p[i].pid = i+1;
+    }
+
+    //Burst Time
+        for(i=0; i<n; i++)
+    {
+            printf("Burst time for process P%d (in ms) : ",(i+1));
+            scanf("%d", &p[i].btime);
+            p[i].pid = i+1;
+    }
+
+    /*
+    //------------------------------------------------------------------------------------//
+
+    //Calculate completion  time
+    int small = p[0].ArrivalTime;
+    int process;
+    for(i=1; i<n; i++)
+    {
+        if(p[i].ArrivalTime < small)
+        {
+             small = p[i].ArrivalTime;
+        }
+    }
+            printf("smallest Arrival time of Process \t: ");
+            printf("P%d \t %d", process, small);
+
+            //--------------------------------------------------------------------------------------//
+
+            */
+
+    p[-1].CompTime =p[0].ArrivalTime;
+    for(i=0; i<n; i++)
+    {
+        p[i].CompTime = p[i-1].CompTime + p[i].btime ;
+
+   //     printf("\nCompleteion TIme: ");
+       //     printf("%d",  p[i+1].CompTime );
+    }
+
+    printf("\n");
+
+    //Calculate Turn Around time
+    for(i=0; i<n; i++)
+    {
+       p[i].ttime = p[i].CompTime - p[i].ArrivalTime;
+
+       // printf("\n Turn Around TIme: ");
+         //   printf("%d",  p[i].ttime);
+    }
+
+
+    //Calculate waiting time
+p[0].wtime = 0;
+for(i=0; i<n; i++)
+    {
+          p[i].wtime = p[i].ttime - p[i].btime;
+       //   printf("\n Waiting TIme: ");
+           // printf("%d",  p[i].wtime);
+    }
+
+    ttur = twat = 0;
+    for(i=0; i<n; i++)
+    {
+        ttur += p[i].ttime;
+        twat += p[i].wtime;
+    }
+
+    awat = (float)twat / n;
+    atur = (float)ttur / n;
+
+
+    //Printing result//
+    printf("\n FCFS Scheduling\n\n");
+
+    for(i=0; i<67; i++)
+    printf("-");
+
+    printf("\nProcess\t A-Time  B-Time  \t  C-Time     T-Time    W-Time \t |\n");
+
+    for(i=0; i<67; i++)
+    printf("-");
+
+    for(i=0; i<n; i++)
+    printf("\n P%d  \t %d  \t   %4d  \t  %d\t  %3d  \t \t %2d \t |", p[i].pid, p[i].ArrivalTime,  p[i].btime,  p[i].CompTime  ,p[i].ttime, p[i].wtime);
+
+    printf("\n");
+
+    for(i=0; i<67; i++)
+    {
+         printf("-");
+    }
+
+printf("\n\nAverage waiting time : %5.2fms", awat);
+printf("\nAverage turn around time : %5.2fms\n", atur);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	

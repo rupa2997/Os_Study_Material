@@ -1,0 +1,696 @@
+--linux is case sensitve and windowa are case sensitive
+--linux all directiories, folders all are files
+--cat --create new files,edit files
+
+--mkdir--create new directory
+--ls-- to check files and directory
+--?--one charator
+--*--o or more than 0 charactor
+--. --show hidden files
+--ls fil?--  find one file name start with fill and end with any one character
+--cat > f--if file is not create then  first create and then  we can write in file
+--ls f* -- all the files which start with f
+--cat f-- it shows the content of the f file
+--cat f rupali > sonali
+all content of f, rupali file will be merged in sonali file
+--cp f file1-- all content will be copied in file1
+--mv f temp move content of f file nd override in temp file
+--rm is used to remove thr file
+--change owner-chown
+--cat city -- grep 'a' city-- display all content which has a letters in between
+--grep 'a' city | sort
+    ---display all content which has a letters in between and sorting also the outout
+--echo $PS1-- show path
+--echo $SHELL
+   --/bin/bash
+--echo PS1
+     --PS1
+--change group-- chgrp
+grep--serching pattern files
+
+
+--Linux Commnads
+ --Regular Files
+  --Directories
+ --symbolic links
+ --Devices and peripherals
+ --Pipes
+  --Socketes
+
+Rule 1: Case sensitive
+README readme
+Rule 2: no limit
+Rule 3: add special character .abc--. operator shows that file is hidden
+   .abc
+   .index.html--. is considering one character of file
+shell is used to give the input to the os--also it is tool to communicated with the os
+
+--id --interface
+
+Popular Shells
+ --sh:The Bourne Shell
+ --csh:The C Shells
+ --tcsh:The tc Shell
+ -Bash: improve version of sh shell--Bourne again shell
+
+Command path: /home/kw
+Command Syntax:
+Command [argument] [argument] [argument] [--argument]
+Ex:
+ls --list of files
+ls -l --list of files & details of the file--whether it is file or directories
+cat -n filname --show the contents allong with number of lines
+
+data +%a--Mon
+data +%A--Monday
+data +%b--Sep
+data +%B--September
+data +%d--07
+data +%D--09/07/2020
+data +%F--2020-09-07
+data +%T-- 17:54:07
+date +%B%d%Y--September 07 2020
+date +%B' '%d' '%Y--September 07 2020
+
+cal jan 2020
+cal -m1 2019
+
+cd  /--redirect to root directory
+cd /home/rupali
+ls -t--gives which file is created last-time
+ls -s--biggest ffiles
+ls -a hidden files
+ls -r gives exact reverse of display files of--ls -s
+ls -ltr--all files with time in reverse format
+clear--to clear terminal
+ls *.txt--print all txt file
+
+Wildcard character
+ --*,?,[]
+file[1-5].txt=>file1
+file[a1-a5]
+file.*
+g*.txt
+b*[1-5].txt
+.
+..
+cd /-Root Directory
+cd . current dir
+cd . .home(parent)  directory
+
+Absolute path--root to directory
+relative path-- home to directory
+cp-copy file or directory
+mv- file or directory--overide
+mkdir--make directory
+rm--remove dirextoey
+ln --number of lines,words,characters--special command also used to create link--hard link symbolic link
+touch --to create new directory
+cat-concatinated the text in the files
+> -redirecting operator
+
+-cat file1.txt >file4> file1> file2>
+file3> file5
+
+--ln -hard or soft (symbolic)
+-hard link
+--if directory contains some content then that dir dosent deleted
+
+--cat file1 >> file2
+  --all the content of the file1 copied in file2
+========================================
+Shell is middle level labg
+--comand line interface-shell
+  window powershell
+
+--$ echo $SHELL
+  -shows whic shell we used--/bin/bash
+--shell is not acompiler it is interpreter
+--denote comment #
+--assign variable
+ --variable=value
+access variabe
+ --$variable
+no=8
+
+--dont use this * ? in var name
+--variable are case sensitive
+
+--vi one
+   --if [ "$5"=="4" ]; then
+          echo "Its one"
+     else
+          echo "none"
+fi
+--chmod 777 one
+--./one
+ shell is interpreter
+
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+=5
+=6
+one
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+=5
+=6
+./one: line 3: [: ==: unary operator expected
+none
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+=5
+=6
+one
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+=5
+=6
+one
+rupali@DESKTOP-S8Q3G1T:~$ ./one 6
+=5
+=6
+one
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one 6
+=5
+=6
+one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+=5
+=6
+one
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+=5
+=6
+none
+rupali@DESKTOP-S8Q3G1T:~$ ./one 5
+=5
+=6
+none
+rupali@DESKTOP-S8Q3G1T:~$ vi shell.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shell.sh
+its bash
+rupali@DESKTOP-S8Q3G1T:~$ vi shell.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shell.sh
+its other shell
+rupali@DESKTOP-S8Q3G1T:~$ vi shell.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shell.sh
+its bash
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+./one: line 1: [: =: unary operator expected
+none
+rupali@DESKTOP-S8Q3G1T:~$ ./one 6
+none
+rupali@DESKTOP-S8Q3G1T:~$ ./one 1
+none
+rupali@DESKTOP-S8Q3G1T:~$ ./one 0
+one
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+none
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+none
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ vi shell.sh
+rupali@DESKTOP-S8Q3G1T:~$ vi one
+rupali@DESKTOP-S8Q3G1T:~$ ./one
+./one: line 1: [: =: unary operator expected
+none
+rupali@DESKTOP-S8Q3G1T:~$ ./one 4
+none
+rupali@DESKTOP-S8Q3G1T:~$ ./one 1
+one
+rupali@DESKTOP-S8Q3G1T:~$ ./one 0
+none
+rupali@DESKTOP-S8Q3G1T:~$ $1
+rupali@DESKTOP-S8Q3G1T:~$ echo $1
+
+rupali@DESKTOP-S8Q3G1T:~$ echo $SHELL
+/bin/bash
+rupali@DESKTOP-S8Q3G1T:~$ echo $om=1
+=1
+rupali@DESKTOP-S8Q3G1T:~$ vi shif.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shif.sh
+-bash: ./shif.sh: Permission denied
+rupali@DESKTOP-S8Q3G1T:~$ chmod 777 sh.if.sh
+chmod: cannot access 'sh.if.sh': No such file or directory
+rupali@DESKTOP-S8Q3G1T:~$ chmod 777 shif.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shif.sh
+./shif.sh: line 5: syntax error: unexpected end of file
+rupali@DESKTOP-S8Q3G1T:~$ vi shif.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shif.sh
+false
+rupali@DESKTOP-S8Q3G1T:~$ vi shif.sh
+rupali@DESKTOP-S8Q3G1T:~$ vi shif.sh 1
+2 files to edit
+rupali@DESKTOP-S8Q3G1T:~$ ./shif.sh 1
+false
+rupali@DESKTOP-S8Q3G1T:~$ vi shif.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shif.sh 1
+false
+rupali@DESKTOP-S8Q3G1T:~$ vi shif.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shif.sh 1
+./shif.sh: line 1: [: =: unary operator expected
+false
+rupali@DESKTOP-S8Q3G1T:~$ vi shif.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./shif.sh 1
+true
+rupali@DESKTOP-S8Q3G1T:~$ ./shif.sh 5
+false
+rupali@DESKTOP-S8Q3G1T:~$ vi equality.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./equality.sh
+-bash: ./equality.sh: Permission denied
+rupali@DESKTOP-S8Q3G1T:~$ chmod 777 equality.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./equality.sh
+not equal
+rupali@DESKTOP-S8Q3G1T:~$ vi equality.sh
+rupali@DESKTOP-S8Q3G1T:~$ ./equality.sh
+equal
+rupali@DESKTOP-S8Q3G1T:~$
+echo $$--pID of shell programs
+
+--bc command is used for command line calculator. It is similar to basic calculator by using which we can do basic mathematical calculations.
+Arithmetic operations are the most basic in any kind of programming language. Linux or Unix operating system provides the bc command and expr command for doing arithmetic calculations. You can use these commands in bash or shell script also for evaluating arithmetic expressions.
+
+
+read - p "Enter string:" string 
+    len  = $ {  #string }
+for ((i = $len - 1; i >= 0; i--)) 
+do
+    reverse = "$reverse${string:$i:1}" 
+done 
+    echo "$reverse"
+
+fork.c--parent process called
+how child process created--using fork() function
+what functionality done by fork--
+  --return pid=0 when child process created nd -1 in error nd > than 0 in case of parent case nd exit 
+======================
+Premtive algorithm
+  --round robin
+ --multi level queue
+
+Types of scheduler
+--short term
+--long term
+--middle term
+
+--turn around Time--ci-ai
+
+ls -a---all hidden files nd list
+ls -ltr long time reverse order file
+ls -d .*--all the hidden files
+cat ?.log
+./readme.txt readme.txt
+~/--home dir
+~/rupali-user dir
+cd .. / cd -- ---same
+cat  f1  f2 f3 >> newfile
+cp -i---interactive
+cp -r  f1 f2 --- recursively copy(copy contents present in sorce file into destination file)
+
+rm -rf --f--directory is not empty it will forcefully delete that file
+rm -r d1 d2 d4---ast deleet files inside it then used rmdir d1 d2 d3 d4
+display all  information ---    more f1  f2 f3 --
+less f1 f2 f3
+head [-n]f1---bydefault it will show 10 lines
+tail [-20]f1 ---it will show last 20 lines
+tail -f f1-----
+grep error *.log
+grep -ri error.log
+sort -ru f1
+sed- stream editor .c, .c++
+
+^a1--begining of the file start with a1
+$ --end of line
+* match with previous
++ previous element 
+[^abc]--not match with these pattern
+$[^0-9]--not end of the line
+^su*$[0-9]
+[su*$[001-100]]
+echo "this is $((5+9))th May"
+echo Front-{A,B,C}-Back
+echo number-{1,2,3,4,5}
+ echo  {z..a}, echo {a-z} | rev
+echo aA{1..100}b
+
+3 types of access level--
+user-u
+Group-g
+Other-o
+private-protected-public
+usergroupother
+r=4--read
+w=2--write
+x=1--Excute
+a,b,c= r*4+w*2+x*----2 raised to 2--2 ra to 1--2 raised to 0 (Octal format for giving permission)
+
+
+
+
+
+
+www.regularexpression.info
+
+
+read X
+read Y
+echo $((X+Y))
+echo $((X-Y))
+echo $((X*Y))
+echo $((X/Y))
+
+read a;
+read b;
+echo $((a+b));
+echo $((a-b));
+echo $((a*b));
+echo $((a/b));
+
+read x
+read y
+
+echo "$x+$y" |bc
+echo "$x-$y" |bc
+echo "$x*$y" |bc
+echo "$x/$y" |bc
+
+double paranthesis is used when compare string or integer
+
+read X
+read Y
+read Z
+
+if [ $X -eq $Y ] && [ $Y -eq $Z ]
+then
+    echo "EQUILATERAL"
+    
+elif [ $X -eq $Y ] || [ $Y -eq $Z ] || [ $Z -eq $X ]
+then
+    echo "ISOSCELES"
+
+else
+    echo "SCALENE"
+fi
+
+
+
+=============================================
+Hcakerank
+2)for(( i=1;$i<=99;i++ ))
+do
+ d=`expr $i % 2`
+ if [ $d -eq 1 ]  
+ then
+  echo $i;
+ fi
+done 
+
+3)read a;
+echo "Welcome $a"
+
+4)
+for(( i=1;$i<=50;i++ ))
+do
+ echo $i
+done 
+
+5)
+read a;
+read b;
+echo $(($a+$b))
+echo $(($a-$b))
+echo $(($a*$b))
+echo $(($a/$b))
+
+6)
+read X
+read Y
+if [ $X -lt $Y ] 
+then
+  echo "X is less than Y"
+elif [ $X -gt $Y ] 
+then
+  echo "X is greater than Y"
+else
+  echo "X is equal to Y"
+fi  
+
+7)
+read a
+if [ $a == "y" ] || [ $a == "Y" ]
+then
+  echo "YES"
+else
+  echo "NO"
+fi  
+
+8)
+read x
+read y
+read z
+if [ $x == $y ] && [ $y == $z ]
+then
+  echo "EQUILATERAL"
+elif [ $x == $y ] || [ $y == $z ] || [ $z == $x ]
+then 
+  echo "ISOSCELES"
+else
+  echo "SCALENE"
+fi  
+
+9)
+read line;
+printf "%.3f" $(echo "scale = 4; $line" | bc);
+printf "%.3f" $(echo "$sum / $temp" | bc -l)
+
+10)
+read t;
+sum=0;
+for((i=0;i<t;i++))
+do
+read num;
+sum=$((sum+num));
+done
+printf "%.3f" $(echo "scale=4; $sum / $t " | bc );
+
+https://github.com/kuldeep375/scheduling.git
+
+By default, it displays the first  lines when used in the following form:
+
+head [filename]
+head -n 11 [filename]  -> First 11 lines  
+head -c 20 [filename]  -> First 20 characters  
+------------------------------------------------------------------
+head -20 | tail -10 --lines between 11-20
+head -c 20-- display 1st 20 characters
+tr '()' '[]' --replaces () ==[]
+tr -d '[a-z]' ==delete lower case letter
+tr -d [0-9] ==delete numbers
+cut -c 2-7 --delete between 2 to 7
+cut -c 2==delete 2nd char
+tr -s ''----remove extra space with single space
+
+sort -n ----sort numbers in ascending
+sort -n -r ---sort numbers in decending
+sort -n -k2 -r -t $'\t'
+
+sort -n -k2 -r -t $'\t' for a tab delimited file    
+sort -n -k2 -t',' for a comma delimited file    
+sort -n -k2 -t'|' for a pipe delimited file    
+
+The '-d' option prints only those lines which are followed by one or more repetitions immediately after them.
+uniq -d < testCounts.txt  
+OR
+cat testCounts.txt | uniq -d  
+OR
+uniq -d testCounts.txt  
+--uniq -u --suceeded and preceded by differentt lines
+--tr -d [0-9]---digits being deleted
+--readarray ary 
+echo ${ary[@]/[A-Z]/.}
+
+sed -r 's/(.+ )(.+ )(.+ )(....)/\4 \3\2\1/'
+-ne---n--append next echo---e---enable bacjslash
+-- -ge -a stands for and
+--while read aaa
+do
+echo  $aaa | grep -q [aA]
+if [ $? -ne 0 ]
+then
+echo $aaa
+fi
+done
+
+--awk '/^[^aA]+$/' ---
+
+The delimiter between consecutive rows of data has been transformed from the newline to a semicolon.
+
+paste -s -d';'
+here -s is used for merging the lines. and =d for the delimiter.
+
+paste -d';' - - - ===3 col in one line
+The given input file has been reshaped as required.
+paste -d';' - - -
+
+Restructure the file in such a way, that every group of three consecutive rows are folded into one, and separated by tab.
+paste - - -
+or
+paste -d'\t' - - -
+anothre solution paste -d ''| paste - - -
+
+sed ---trim editors
+
+uniq -i case insencituve
+ uniq -u --suceeded and preced wit uniq
+
+uniq -c -i | cut -c7-
+elements between 3 to 7
+i=0
+while read a
+do
+    arr[$i]=$a
+    (( i++ ))
+done
+echo ${arr[@]:3:5}
+paste -sd' ' | cut -d' ' -f 4-8
+arr=($(cat))
+echo ${arr[@]:3:5}
+
+
+
+-------------------------
+greap -v [aA]
+echo  ${Array[@]/*[aA]*/}
+
+arr=($(cat))
+echo -n "${arr[@]} ${arr[@]} ${arr[@]}"
+
+awk '{print $4,$3,$2,$1}'
+
+arr=($(cat))
+echo ${arr[@]:3:1}
+==
+arr=($(cat))
+echo ${#arr[@]}
+==
+while read xx
+do
+
+var=$(echo $xx | cut -c2-)
+echo -ne ".$var "
+
+done
+
+NF --store the number of fields
+
+awk '{if (NF < 4){print "Not all scores are available for "$1}}'
+
+awk '{if ($4 == "") print "Not all scores are available for",$1;}'
+
+awk '{print $1,":", ($2<50||$3<50||$4<50) ? "Fail" : "Pass"}'
+
+awk '{avg=($2+$3+$4)/3; print $0, ":", (avg<50)?"FAIL":(avg<80)?"B":"A"}'
+
+grep -i ignore lower case
+grep -i /the/
+grep " the "
+
+grep '\bthe\b'
+
+echo "`cat`" |grep -w 'the'
+
+grep -iw ' the ' --remove case insencitive
+
+grep -ivw ' that ' ===remo those lines with that--case in sensitives
+
+grep -iw 'the\|that\|then\|those'
+
+sed 's/\bthe\b/this/'
+
+tr -s ' '--multiple spaces replace with single
+======================================
+Threads
+--1 process divide into smaller units called as threads which can be excuted independently
+
+--fork is used to create process
+--threads are smaller unit of programming
+--
+==============================
+-e -----used for \n \t
+
+
+
+i=0
+j=0
+while read arr
+do
+ if [ $i -ge 3 -a $i -le 7 ]
+ then
+   ar[j]=$arr
+   ((j++))
+ fi
+ ((i++))
+done
+echo ${ar[@]}
+
+Filter an Array with Patterns
+readarray arr
+aksh=(${arr[@]/*[aA]*/})
+echo ${aksh[@]}
+
+ecgo ${name^^}===all letters upper
+ecgo ${name^}-- starting letters upeers
+
+
+j=0
+i=0
+while read arr
+do
+if [ $i -ge 3 -a $i -le 7 ]
+then
+  ar[j]=$arr
+  ((j++))
+fi
+((i++))
+done
+echo "${ar[*]}"
+
+readarray arr
+echo ${arr[@]/[A-Z]/}
+
+var=$(cat)
+echo $var" "$var" "$var
+
+readarray arr
+echo ${#arr[@]}
+
+grep '\|the\|that\|then\|those'
+ sed '(.+)\4\3\2\1'
+awk '{print $4,$3,$2,$1}'
+
+
+read n
+readarray arr
+count=0
+x=${#arr[@]}
+for (( i=0;i<x;i++))
+do
+ count=0
+ for ((j=0;j<x;j++))
+ do
+   if [ $arr[i] -eq $arr[j] ]
+   then
+     ((count++))
+   fi
+ done
+  if [ $count -eq 1 ]
+  then
+    echo "$i"
+  fi
+done
